@@ -1,0 +1,12 @@
+---
+- hosts: redhat
+  gather_facts: yes
+  remote_user: nagios
+  become: yes
+  become_user: root
+  become_method: sudo
+  vars_files:
+      - "inventory/group_vars/init_keys.yml"
+  tasks:
+   - name: Set authorized key taken from file
+     authorized_key: user=nagios key="{{ lookup('file', 'keyssh/public_key.pem') }}"

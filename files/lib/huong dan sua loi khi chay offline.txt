@@ -1,0 +1,18 @@
+[submodule "bash-tools"]
+	path = bash-tools
+	url = https://github.com/harisekhon/bash-tools
+	branch = master
+	
+	
+	git config -f .gitmodules --remove-section "submodule.bash-tools"
+	
+	git add .gitmodules
+	git submodule deinit -f "bash-tools"
+	
+	git rm --cached /usr/local/nagios/libexec/lib/bash-tools
+	
+	rm -rf .git/modules/usr/local/nagios/libexec/lib/bash-tools
+	
+	git commit -m "bash-tools"
+	
+	rm -rf /usr/local/nagios/libexec/lib/bash-tools

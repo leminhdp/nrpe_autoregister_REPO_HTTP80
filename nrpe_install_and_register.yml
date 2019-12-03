@@ -1,0 +1,19 @@
+---
+- name: Install NRPE and Register Host and Services
+  hosts: redhat
+  gather_facts: yes
+  remote_user: nagios
+  become: yes
+
+  vars_files:
+    - vars/secrets.yml
+  vars:
+    xi_ip: '192.168.120.129'
+
+  roles:
+    - role: nrpe_install_linux
+#    - role: check_redis_install
+#    - role: check_nginx_install
+    - role: check_oracle_health
+#    - role: register_with_xi
+#    - role: xi_apply_config

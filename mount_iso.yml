@@ -1,0 +1,12 @@
+---
+- name: Add Repository Local
+  yum_repository:
+    name: RHEL7
+    description: YUM ISO Repo
+    baseurl: "http://{{ xi_ip }}/redhat7/"
+    gpgcheck: no
+    enabled: yes
+- name: yum-clean-metadata
+  command: yum clean all
+  args:
+      warn: no
