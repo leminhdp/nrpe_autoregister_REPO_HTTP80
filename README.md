@@ -1,5 +1,12 @@
 # Setup
+#############On NagiosXI ##############################
+a. Copy ISO linux to /var/ISO/RHEL7.iso
+ mkdir -p /var/ISO
+ mkdir -p /mnt/redhat7/
+ 
+b.mount -o loop,ro /var/ISO/RHEL7.iso /mnt/redhat7/
 
+########################################################
 You will need to edit two files to get this working:
 
 1.  Set the IP address of your XI server in `ncpa_install_and_register.yml` like so:
